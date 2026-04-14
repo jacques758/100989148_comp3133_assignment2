@@ -1,0 +1,22 @@
+body {
+  background: #f5f7fb;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.page-shell {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.card-box {
+  width: 100%;
+  max-width: 520px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  padding: 28px;
+}

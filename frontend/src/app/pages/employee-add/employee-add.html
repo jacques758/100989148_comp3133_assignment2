@@ -1,0 +1,19 @@
+<div class="container py-4">
+  <div class="card shadow-sm p-4 mx-auto" style="max-width: 700px;">
+    <h2 class="mb-3">Add Employee</h2>
+    <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="row g-3">
+      <div class="col-md-6"><label class="form-label">First Name</label><input class="form-control" formControlName="firstName"></div>
+      <div class="col-md-6"><label class="form-label">Last Name</label><input class="form-control" formControlName="lastName"></div>
+      <div class="col-12"><label class="form-label">Email</label><input class="form-control" formControlName="email"></div>
+      <div class="col-md-6"><label class="form-label">Designation</label><input class="form-control" formControlName="designation"></div>
+      <div class="col-md-6"><label class="form-label">Department</label><input class="form-control" formControlName="department"></div>
+      <div class="col-md-6"><label class="form-label">Salary</label><input class="form-control" type="number" formControlName="salary"></div>
+      <div class="col-md-6"><label class="form-label">Profile Picture URL</label><input class="form-control" formControlName="profilePicture"></div>
+      <div class="col-12 d-flex gap-2">
+        <button class="btn btn-success" type="submit">{{ loading ? 'Saving...' : 'Save' }}</button>
+        <a class="btn btn-secondary" routerLink="/employees">Cancel</a>
+      </div>
+    </form>
+  </div>
+</div>

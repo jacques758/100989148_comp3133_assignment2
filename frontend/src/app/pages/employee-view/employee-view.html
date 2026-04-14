@@ -1,0 +1,21 @@
+<div class="container py-4">
+  <div class="card shadow-sm p-4 mx-auto" style="max-width: 700px;">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h2 class="mb-0">Employee Details</h2>
+      <a class="btn btn-secondary" routerLink="/employees">Back</a>
+    </div>
+
+    <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+    <div *ngIf="employee as e">
+      <div class="text-center mb-3" *ngIf="e.profilePicture">
+        <img [src]="e.profilePicture" style="width:140px;height:140px;object-fit:cover;border-radius:50%;" />
+      </div>
+      <p><strong>First Name:</strong> {{ e.firstName }}</p>
+      <p><strong>Last Name:</strong> {{ e.lastName }}</p>
+      <p><strong>Email:</strong> {{ e.email }}</p>
+      <p><strong>Designation:</strong> {{ e.designation || '-' }}</p>
+      <p><strong>Department:</strong> {{ e.department || '-' }}</p>
+      <p><strong>Salary:</strong> {{ e.salary ?? '-' }}</p>
+    </div>
+  </div>
+</div>
