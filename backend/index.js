@@ -11,24 +11,14 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use('/uploads', express.static('uploads'));
 
-mongoose
-  .connect(process.env.MONGO_URI)
+mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB connected'))
   .catch((err) => console.error('MongoDB connection error:', err));
 
-app.use(
-  '/graphql',
-  graphqlHTTP((req) => ({
-    schema,
-    graphiql: true,
-    context: { req }
-  }))
-);
-const app = require('./index');
-const PORT = process.env.PORT || 4000;
+app.use('/graphql', graphqlHTTP({
+  schema,
+  graphiql: true
+}));
 
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}/graphql`);
-});
+module.exports = app;
